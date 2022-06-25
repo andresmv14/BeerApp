@@ -1,4 +1,4 @@
-package com.mv.beerapp.view
+package com.mv.beerapp.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
