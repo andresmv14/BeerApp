@@ -9,5 +9,14 @@
         android:id="@+id/loginFragment"
         android:name="com.mv.beerapp.ui.view.loginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/loginToPrincipal"
+            app:destination="@id/principalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="com.mv.beerapp.ui.view.principalFragment"
+        android:label="fragment_principal"
+        tools:layout="@layout/fragment_principal" />
 </navigation>

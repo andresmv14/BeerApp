@@ -5,6 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
     fun getRetrofit():Retrofit{
-        return Retrofit.Builder().baseUrl("https://punkapi.com/documentation/v2").addConverterFactory(GsonConverterFactory.create()).build()
+        return Retrofit.Builder().baseUrl("https://api.punkapi.com/v2/").addConverterFactory(GsonConverterFactory.create()).build()
     }
 }
