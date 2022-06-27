@@ -1,12 +1,15 @@
 package com.mv.beerapp.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
@@ -14,6 +17,7 @@ import com.mv.beerapp.data.model.BeerModel
 import com.mv.beerapp.data.model.BeerProvider
 import com.mv.beerapp.databinding.ActivityMainBinding
 import com.mv.beerapp.ui.view.adapter.BeerAdapter
+import com.mv.beerapp.ui.viewmodel.BeerDetailModel
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
 
 
@@ -21,7 +25,7 @@ class principalFragment : Fragment()  {
     lateinit var miRecycler: RecyclerView
     lateinit var adaptador:BeerAdapter
     private lateinit var binding: ActivityMainBinding
-    private val beerViewModel: BeerViewModel by viewModels()
+    private val beerViewModel: BeerViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,14 +39,14 @@ class principalFragment : Fragment()  {
         recyclerView.layoutManager =LinearLayoutManager(requireContext())
         beerViewModel.onCreate()
         beerViewModel.beerModel.observe(viewLifecycleOwner, Observer {
-            recyclerView.adapter = BeerAdapter(it)
+            recyclerView.adapter = BeerAdapter(it,{beerModel -> beerViewModel.onBeerClicked(beerModel)
+                findNavController().navigate(R.id.prinToDeta)})
         })
-
-
 
         // Inflate the layout for this fragment
             return view
     }
+
 
 
 

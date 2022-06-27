@@ -18,6 +18,7 @@ import kotlin.math.log
 
 class BeerViewModel : ViewModel() {
     val beerModel = MutableLiveData<List<BeerModel>>()
+    //val beerDetail = MutableLiveData<BeerModel>()
     val getBeers = getBeers()
     fun onCreate(){
         viewModelScope.launch {
@@ -32,5 +33,14 @@ class BeerViewModel : ViewModel() {
 
         }
     }
+    val beerDetail = MutableLiveData<BeerModel>()
+    fun onBeerClicked(BeerD: BeerModel){
+        Log.e("Si es correcto",BeerD.toString())
+            beerDetail.value=BeerD
+        Log.e("BeerDetail",beerDetail.value.toString())
+
+
+    }
+
 
 }

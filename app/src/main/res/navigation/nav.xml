@@ -18,5 +18,18 @@
         android:id="@+id/principalFragment"
         android:name="com.mv.beerapp.ui.view.principalFragment"
         android:label="fragment_principal"
-        tools:layout="@layout/fragment_principal" />
+        tools:layout="@layout/fragment_principal" >
+        <action
+            android:id="@+id/prinToDeta"
+            app:destination="@id/ventanaDetalles" />
+    </fragment>
+    <fragment
+        android:id="@+id/ventanaDetalles"
+        android:name="com.mv.beerapp.ui.view.ventanaDetalles"
+        android:label="fragment_ventana_detalles"
+        tools:layout="@layout/fragment_ventana_detalles" >
+        <action
+            android:id="@+id/action_ventanaDetalles_to_principalFragment"
+            app:destination="@id/principalFragment" />
+    </fragment>
 </navigation>

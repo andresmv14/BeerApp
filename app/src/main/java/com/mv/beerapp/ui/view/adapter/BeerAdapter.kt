@@ -15,7 +15,7 @@ import com.mv.beerapp.domain.getBeers
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
 import com.squareup.picasso.Picasso
 
-class BeerAdapter(private val beerList: List<BeerModel>): RecyclerView.Adapter<BeerViewHolder>(){
+class BeerAdapter(private val beerList: List<BeerModel>, private val onClickListener: (BeerModel) -> Unit) : RecyclerView.Adapter<BeerViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -24,7 +24,7 @@ class BeerAdapter(private val beerList: List<BeerModel>): RecyclerView.Adapter<B
 
     override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
         val item = beerList[position]
-        holder.render(item)
+        holder.render(item, onClickListener)
     }
 
     override fun getItemCount(): Int {
