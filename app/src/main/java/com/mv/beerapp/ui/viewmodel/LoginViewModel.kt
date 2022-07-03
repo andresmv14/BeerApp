@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mv.beerapp.data.database.entities.BeerApp
 import com.mv.beerapp.data.database.entities.UserEntity
+import com.mv.beerapp.data.model.BeerProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -33,6 +34,7 @@ class LoginViewModel: ViewModel() {
                 val decodedString = String(decodedBytes)
                 if (decodedString == pass){
                     loginCorrecto.postValue(true)
+                    BeerProvider.user = user
                 }else{
                     loginCorrecto.postValue(false)
                 }

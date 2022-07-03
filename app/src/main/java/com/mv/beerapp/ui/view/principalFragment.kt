@@ -26,16 +26,21 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.fragment.app.activityViewModels
 
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.mv.beerapp.R
+import com.mv.beerapp.data.database.entities.BeerApp
+import com.mv.beerapp.data.model.BeerProvider
+import com.mv.beerapp.data.model.BeerProvider.Companion.fav
 
 import com.mv.beerapp.databinding.ActivityMainBinding
 import com.mv.beerapp.ui.view.adapter.BeerAdapter
 
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
+import kotlinx.coroutines.launch
 
 
 class principalFragment : Fragment()  {
@@ -60,7 +65,9 @@ class principalFragment : Fragment()  {
         beerViewModel.beerModel.observe(viewLifecycleOwner, Observer {
             recyclerView.adapter = BeerAdapter(it,{beerItem -> beerViewModel.onBeerClicked(beerItem)
                 findNavController().navigate(R.id.prinToDeta)})
+
         })
+
 
 
         // Inflate the layout for this fragment

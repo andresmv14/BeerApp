@@ -14,6 +14,6 @@ class BeerApp: Application() {
             this,
             BeerDatabase::class.java,
             "Beers"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
     }
 }

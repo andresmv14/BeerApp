@@ -20,16 +20,24 @@ interface BeerDao {
     @Insert
     suspend fun insertUser(user:List<UserEntity>):List<Long>
     @NotNull
+    @Transaction
     @Insert
-    suspend fun insertRelation(fav:List<UserBeerRef>)
+    suspend fun insertRelation(fav:List<UserBeerRef>):List<Long>
 
     @Transaction
     @Query("SELECT * FROM UserEntity WHERE UserId = :id")
     suspend fun getUserWithBeers(id: Int):List<UserWithBeer>
+    @Transaction
+    @Query("SELECT BeerId FROM UserBeerRef WHERE UserId = :idUser")
+    fun getFav(idUser: Int ):List<Int>
+
 
 
     @Query("SELECT password FROM UserEntity WHERE usuario =:user")
     suspend fun getUsers(user:String):String
+
+    @Query("SELECT UserId FROM UserEntity WHERE usuario =:user")
+    suspend fun getId(user:String):Int
 
 
     @Update
@@ -39,7 +47,7 @@ interface BeerDao {
     fun updateBeer(beerU:BeerEntity)
     @NotNull
     @Delete
-    fun deleteFav(fav:List<UserBeerRef>)
+    suspend fun deleteFav(fav:List<UserBeerRef>)
 
     @Query("DELETE FROM BeerEntity")
     suspend fun deleteAllBeers()

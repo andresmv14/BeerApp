@@ -18,7 +18,6 @@ class RegistroViewModel: ViewModel() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun guardarUsuario(user:String, pass:String){
-        val pass = pass
         val encodePass: String = Base64.getEncoder().encodeToString(pass.toByteArray())
         Log.e("Pass base 64",encodePass)
         var mUser = UserEntity(0,user,encodePass)
