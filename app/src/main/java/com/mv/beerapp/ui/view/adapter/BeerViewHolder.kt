@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
 import com.mv.beerapp.data.model.BeerModel
+import com.mv.beerapp.modelo.BeerItem
 import com.squareup.picasso.Picasso
 
 class BeerViewHolder(view:View):RecyclerView.ViewHolder(view) {
@@ -14,12 +15,12 @@ class BeerViewHolder(view:View):RecyclerView.ViewHolder(view) {
     val tagLine = view.findViewById<TextView>(R.id.tvTagLine)
     val imagen = view.findViewById<ImageView>(R.id.ivBeer)
 
-    fun render(beermodel: BeerModel, onClick: (BeerModel) -> Unit){
-        tvName.text = beermodel.name
-        tagLine.text = beermodel.tagLine
-        Picasso.get().load(beermodel.image).into(imagen)
+    fun render(beerItem: BeerItem, onClick: (BeerItem) -> Unit){
+        tvName.text = beerItem.name
+        tagLine.text = beerItem.tagLine
+        Picasso.get().load(beerItem.image).into(imagen)
         itemView.setOnClickListener{
-            onClick(beermodel)
+            onClick(beerItem)
         }
     }
 }

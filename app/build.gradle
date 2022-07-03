@@ -1,3 +1,10 @@
+buildscript {
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.0"
+
+    }
+}
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -24,6 +31,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -31,9 +42,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.1'
+    }
     viewBinding{
         enabled = true
     }
+    kapt { generateStubs = true }
 }
 
 dependencies {
@@ -64,6 +79,15 @@ dependencies {
     //Room
     implementation "androidx.room:room-ktx:2.4.0"
     kapt "androidx.room:room-compiler:2.4.0"
+
+    // Integration with activities
+    implementation 'androidx.activity:activity-compose:1.4.0'
+    // Compose Material Design
+    implementation 'androidx.compose.material:material:1.1.1'
+    // Animations
+    implementation 'androidx.compose.animation:animation:1.1.1'
+    // Tooling support (Previews, etc.)
+    implementation 'androidx.compose.ui:ui-tooling:1.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

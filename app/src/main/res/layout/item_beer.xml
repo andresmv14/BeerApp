@@ -46,6 +46,17 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/ivBeer"
             app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <CheckBox
+            android:id="@+id/icon"
+            android:layout_width="26dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:button="@drawable/sl_favourite_24dp"
+            app:buttonTint="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

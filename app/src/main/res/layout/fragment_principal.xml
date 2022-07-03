@@ -3,10 +3,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.principalFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerBeer"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/salir"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="47dp"
+            app:backgroundTint="@color/white"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:drawableLeft="@drawable/ic_baseline_sensor_door_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/favoritos"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="47dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="12dp"
+            app:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_baseline_stars_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.857"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerBeer"
+            android:layout_width="405dp"
+            android:layout_height="677dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/compose_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </FrameLayout>

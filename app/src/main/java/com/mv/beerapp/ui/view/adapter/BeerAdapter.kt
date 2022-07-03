@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
 import com.mv.beerapp.data.model.BeerModel
 import com.mv.beerapp.domain.getBeers
+import com.mv.beerapp.modelo.BeerItem
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
 import com.squareup.picasso.Picasso
 
-class BeerAdapter(private val beerList: List<BeerModel>, private val onClickListener: (BeerModel) -> Unit) : RecyclerView.Adapter<BeerViewHolder>(){
+class BeerAdapter(private val beerList: List<BeerItem>, private val onClickListener: (BeerItem) -> Unit) : RecyclerView.Adapter<BeerViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

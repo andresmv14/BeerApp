@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.mv.beerapp.data.model.BeerModel
+import com.mv.beerapp.modelo.BeerItem
 
 @Entity
 data class BeerEntity (
@@ -15,3 +16,6 @@ data class BeerEntity (
     @ColumnInfo(name ="tagline") val tagLine:String,
     @ColumnInfo(name ="description") val description:String
     )
+
+
+fun BeerItem.toDatbase() = BeerEntity(Beerid,image, name, tagLine, description)

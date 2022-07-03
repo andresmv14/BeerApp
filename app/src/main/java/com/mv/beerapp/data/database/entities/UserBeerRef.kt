@@ -6,4 +6,4 @@ import androidx.room.Entity
 @Entity(primaryKeys = ["UserId","BeerId"])
 data class UserBeerRef(
     @ColumnInfo(name = "UserId") val UserId:Int,
-    @ColumnInfo(name = "BeerId") val BeerId:Int)
+    @ColumnInfo(index = true) val BeerId:Int)

@@ -82,6 +82,7 @@
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="47dp"
             android:layout_height="42dp"
+            app:backgroundTint="@color/white"
             android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
             android:drawableLeft="@drawable/ic_baseline_keyboard_backspace_24"
