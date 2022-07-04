@@ -5,20 +5,14 @@ import android.view.View
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.*
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
-import com.mv.beerapp.data.database.entities.BeerApp
-import com.mv.beerapp.data.database.entities.BeerApp.Companion.db
-import com.mv.beerapp.data.database.entities.UserBeerRef
-import com.mv.beerapp.data.model.BeerModel
 import com.mv.beerapp.data.model.BeerProvider
 import com.mv.beerapp.data.model.BeerProvider.Companion.fav
 import com.mv.beerapp.modelo.BeerItem
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
 import com.squareup.picasso.Picasso
-import java.util.Observer
+
 
 
 class BeerViewHolder(view:View):RecyclerView.ViewHolder(view) {

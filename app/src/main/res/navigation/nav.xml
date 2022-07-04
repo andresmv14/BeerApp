@@ -26,6 +26,9 @@
         <action
             android:id="@+id/prinToDeta"
             app:destination="@id/ventanaDetalles" />
+        <action
+            android:id="@+id/action_principalFragment_to_favoritos2"
+            app:destination="@id/favoritos2" />
     </fragment>
     <fragment
         android:id="@+id/ventanaDetalles"
@@ -43,5 +46,13 @@
         <action
             android:id="@+id/action_registerBeer_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritos2"
+        android:name="com.mv.beerapp.ui.view.favoritos"
+        android:label="favoritos" >
+        <action
+            android:id="@+id/action_favoritos2_to_principalFragment"
+            app:destination="@id/principalFragment" />
     </fragment>
 </navigation>

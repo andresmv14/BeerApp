@@ -2,7 +2,6 @@ package com.mv.beerapp.domain
 
 import com.mv.beerapp.data.BeerRepository
 import com.mv.beerapp.data.database.entities.toDatbase
-import com.mv.beerapp.data.model.BeerModel
 import com.mv.beerapp.modelo.BeerItem
 
 class getBeers {

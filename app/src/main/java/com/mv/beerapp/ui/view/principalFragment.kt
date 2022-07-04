@@ -4,7 +4,6 @@ package com.mv.beerapp.ui.view
 import android.content.Context
 import android.os.Bundle
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,35 +25,31 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.fragment.app.activityViewModels
 
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.mv.beerapp.R
-import com.mv.beerapp.data.database.entities.BeerApp
-import com.mv.beerapp.data.model.BeerProvider
-import com.mv.beerapp.data.model.BeerProvider.Companion.fav
 
-import com.mv.beerapp.databinding.ActivityMainBinding
 import com.mv.beerapp.ui.view.adapter.BeerAdapter
 
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
-import kotlinx.coroutines.launch
 
 
 class principalFragment : Fragment()  {
     lateinit var btnSalir:Button
-    private lateinit var binding: ActivityMainBinding
+    lateinit var btnFavoritos:Button
     private val beerViewModel: BeerViewModel by activityViewModels()
     override fun onCreateView (
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = ActivityMainBinding.inflate(layoutInflater)
         val view = inflater.inflate(R.layout.fragment_principal, container, false)
 
-
+        btnFavoritos = view.findViewById(R.id.btnfavoritos)
+        btnFavoritos.setOnClickListener {
+            findNavController().navigate(R.id.action_principalFragment_to_favoritos2)
+        }
         btnSalir = view.findViewById(R.id.salir)
         btnSalir.setOnClickListener {
             view.findViewById<ComposeView>(R.id.compose_view).setContent { alertDialog() }
@@ -79,8 +74,8 @@ class principalFragment : Fragment()  {
             object : OnBackPressedCallback(true)
             {
                 override fun handleOnBackPressed() {
-                    binding.fragmentContainerView.findViewById<ComposeView>(R.id.compose_view).setContent {alertDialog() }
-
+                    activity?.finish()
+                    System.exit(0)
                 }
             }
         requireActivity().onBackPressedDispatcher.addCallback(
@@ -91,7 +86,6 @@ class principalFragment : Fragment()  {
 
     @Composable
     fun alertDialog(){
-        val context = LocalContext.current
         val openDialog = remember{ mutableStateOf(true)}
 
         if (openDialog.value){

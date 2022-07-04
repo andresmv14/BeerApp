@@ -5,7 +5,6 @@ import com.mv.beerapp.data.database.entities.BeerEntity
 import com.mv.beerapp.data.database.entities.UserBeerRef
 import com.mv.beerapp.data.database.entities.UserEntity
 import com.mv.beerapp.data.database.entities.UserWithBeer
-import com.mv.beerapp.modelo.BeerItem
 import org.jetbrains.annotations.NotNull
 
 @Dao
@@ -25,8 +24,8 @@ interface BeerDao {
     suspend fun insertRelation(fav:List<UserBeerRef>):List<Long>
 
     @Transaction
-    @Query("SELECT * FROM UserEntity WHERE UserId = :id")
-    suspend fun getUserWithBeers(id: Int):List<UserWithBeer>
+    @Query("SELECT * FROM UserEntity WHERE UserId = :userid")
+    suspend fun getUserWithBeers(userid:Int):List<UserWithBeer>
     @Transaction
     @Query("SELECT BeerId FROM UserBeerRef WHERE UserId = :idUser")
     fun getFav(idUser: Int ):List<Int>

@@ -1,11 +1,8 @@
 package com.mv.beerapp.data
 
-import android.content.Context
-import android.util.Log
-import androidx.room.Room
+
 import com.mv.beerapp.data.database.entities.BeerApp
 import com.mv.beerapp.data.database.entities.BeerEntity
-import com.mv.beerapp.data.database.entities.dao.BeerDao
 import com.mv.beerapp.data.model.BeerModel
 import com.mv.beerapp.data.model.BeerProvider
 import com.mv.beerapp.data.network.BeerService
@@ -18,7 +15,6 @@ class BeerRepository {
     suspend fun getAllBeers():List<BeerItem>{
         val response: List<BeerModel> = api.getBeers()
         BeerProvider.beers = response
-        Log.e("Aqui",response.toString())
         return response.map{it.toDomain()}
     }
 

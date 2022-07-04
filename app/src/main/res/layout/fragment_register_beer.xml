@@ -24,36 +24,36 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etUser"
-            android:layout_width="279dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="60dp"
+            android:id="@+id/etUserR"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="283dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="@string/Usuario"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:inputType="textPersonName"
             android:textColor="#070707"
             android:textColorHint="#000000"
             android:textSize="20sp"
-            app:errorEnabled="true"
-            app:endIconMode="clear_text"
             app:backgroundTint="@color/black"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Register"
             app:startIconDrawable="@drawable/ic_baseline_person_24">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                />
+                android:layout_width="279dp"
+                android:layout_height="53dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etPass"
-            android:layout_width="279dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="60dp"
+            android:id="@+id/etPassR"
+            android:layout_width="283dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="@string/Contraseña"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -67,11 +67,11 @@
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/ic_baseline_lock_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUser">
+            app:layout_constraintTop_toBottomOf="@+id/etUserR">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="279dp"
+                android:layout_height="53dp"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,7 +84,7 @@
             android:layout_marginBottom="56dp"
             android:background="@drawable/rounded_rectangle"
             android:focusable="true"
-            android:text="Register"
+            android:text="Registrar"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:backgroundTint="@color/black"
@@ -92,7 +92,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPass" />
+            app:layout_constraintTop_toBottomOf="@+id/etPassR" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,36 +11,20 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/salir"
+            android:id="@+id/btnSalir"
             style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="146dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="12dp"
-            android:drawableLeft="@drawable/ic_baseline_sensor_door_24"
-            android:text="Salir"
-            android:textColor="#100F0F"
+            android:layout_width="47dp"
             app:backgroundTint="@color/white"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:drawableLeft="@drawable/ic_baseline_keyboard_backspace_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnfavoritos"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="170dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="12dp"
-            android:drawableLeft="@drawable/ic_baseline_stars_24"
-            android:text="Favoritos"
-            android:textColor="#151414"
-            app:backgroundTint="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.857"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerBeer"
+            android:id="@+id/recyclerFavoritos"
             android:layout_width="405dp"
             android:layout_height="677dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,12 +33,6 @@
             app:layout_constraintTop_toTopOf="parent"
 
             app:layout_constraintVertical_bias="1.0" />
-
-        <androidx.compose.ui.platform.ComposeView
-            android:id="@+id/compose_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

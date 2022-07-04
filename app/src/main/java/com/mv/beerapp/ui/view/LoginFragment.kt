@@ -1,26 +1,27 @@
 package com.mv.beerapp.ui.view
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.mv.beerapp.R
+import com.mv.beerapp.databinding.ActivityMainBinding
+import com.mv.beerapp.databinding.FragmentLoginBinding
+import com.mv.beerapp.databinding.FragmentPrincipalBinding
 import com.mv.beerapp.ui.viewmodel.LoginViewModel
-import java.util.*
 
 
 class loginFragment : Fragment() {
@@ -42,18 +43,27 @@ class loginFragment : Fragment() {
         btnRegisterBeer = view.findViewById(R.id.btnRegister)
 
         btnLogin.setOnClickListener {
-            viewModel.loginUser(etUser.editText?.text.toString(),etPass.editText?.text.toString())
-            viewModel.loginCorrecto.observe(viewLifecycleOwner, Observer {
-                if(it){
-                    view!!.findNavController().navigate(R.id.loginToPrincipal)
-                }else{
-                    etUser.isErrorEnabled = true
-                    etUser.error = getString(R.string.ErrorUsuario)
+            if (!etUser.editText?.text.toString().isNullOrEmpty() and !etPass.editText?.text.toString().isNullOrEmpty()) {
+                viewModel.loginUser(
+                    etUser.editText?.text.toString(),
+                    etPass.editText?.text.toString()
+                )
+                viewModel.loginCorrecto.observe(viewLifecycleOwner, Observer {
+                    if (it) {
+                        view!!.findNavController().navigate(R.id.loginToPrincipal)
+                    } else {
+                        etUser.isErrorEnabled = true
+                        etPass.isErrorEnabled = true
+                        etUser.error = "Usuario o contraseña incorrecta"
+                    }
 
-                }
 
-            })
-            Lifecycle.State.DESTROYED
+                })
+            }else{
+                etUser.isErrorEnabled = true
+                etPass.isErrorEnabled = true
+                etUser.error = "Rellene todos los campos"
+            }
 
         }
 
@@ -62,6 +72,23 @@ class loginFragment : Fragment() {
         }
         // Inflate the layout for this fragment
         return view
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true)
+            {
+                override fun handleOnBackPressed() {
+                    activity?.finish()
+                    System.exit(0)
+
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
     }
 
 

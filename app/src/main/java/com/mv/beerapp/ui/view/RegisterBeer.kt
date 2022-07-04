@@ -7,19 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.findFragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.mv.beerapp.R
-import com.mv.beerapp.databinding.ActivityMainBinding
-import com.mv.beerapp.ui.viewmodel.BeerViewModel
 import com.mv.beerapp.ui.viewmodel.RegistroViewModel
 
 
@@ -36,11 +30,12 @@ class RegisterBeer : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_register_beer, container, false)
 
-        etUser = view.findViewById<TextInputLayout?>(R.id.etUser)
-        etPass = view.findViewById(R.id.etPass)
+        etUser = view.findViewById(R.id.etUserR)
+        etPass = view.findViewById(R.id.etPassR)
         btnRegistrar = view.findViewById(R.id.btnRegister)
 
         btnRegistrar.setOnClickListener {
+            if (!etUser.editText?.text.toString().isNullOrEmpty() and !etPass.editText?.text.toString().isNullOrEmpty()){
                 viewModel.guardarUsuario(etUser.editText?.text.toString(), etPass.editText?.text.toString())
             viewModel.operacionExistosa.observe(viewLifecycleOwner, Observer {
                 if (it){
@@ -50,6 +45,11 @@ class RegisterBeer : Fragment() {
                     Toast.makeText(requireContext(),"Usuario no creado",Toast.LENGTH_LONG).show()
                 }
             })
+        }else{
+                etUser.isErrorEnabled = true
+                etPass.isErrorEnabled = true
+                etUser.error = "Rellene todos los campos"
+            }
         }
         // Inflate the layout for this fragment
         return view
