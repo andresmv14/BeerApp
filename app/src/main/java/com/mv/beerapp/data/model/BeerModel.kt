@@ -8,4 +8,5 @@ data class BeerModel(@SerializedName("id") val id:Int,
                      @SerializedName("tagline") val tagLine:String,
                      @SerializedName("description") val description:String
 
+
 )
