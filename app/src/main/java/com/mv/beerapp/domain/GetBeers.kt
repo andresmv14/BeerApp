@@ -4,7 +4,7 @@ import com.mv.beerapp.data.BeerRepository
 import com.mv.beerapp.data.database.entities.toDatbase
 import com.mv.beerapp.modelo.BeerItem
 
-class getBeers {
+class GetBeers {
     private val repository = BeerRepository()
 
     suspend operator fun invoke():List<BeerItem> {

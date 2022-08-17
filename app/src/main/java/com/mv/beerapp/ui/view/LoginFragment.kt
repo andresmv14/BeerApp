@@ -8,27 +8,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.mv.beerapp.R
-import com.mv.beerapp.databinding.ActivityMainBinding
-import com.mv.beerapp.databinding.FragmentLoginBinding
-import com.mv.beerapp.databinding.FragmentPrincipalBinding
 import com.mv.beerapp.ui.viewmodel.LoginViewModel
+import kotlin.system.exitProcess
 
 
-class loginFragment : Fragment() {
-    lateinit var etUser: TextInputLayout
-    lateinit var etPass: TextInputLayout
-    lateinit var btnLogin:Button
-    lateinit var btnRegisterBeer: Button
+class LoginFragment : Fragment() {
+    private lateinit var etUser: TextInputLayout
+    private lateinit var etPass: TextInputLayout
+    private lateinit var btnLogin:Button
+    private lateinit var btnRegisterBeer: Button
     private val viewModel:LoginViewModel by viewModels()
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -43,14 +38,14 @@ class loginFragment : Fragment() {
         btnRegisterBeer = view.findViewById(R.id.btnRegister)
 
         btnLogin.setOnClickListener {
-            if (!etUser.editText?.text.toString().isNullOrEmpty() and !etPass.editText?.text.toString().isNullOrEmpty()) {
+            if (etUser.editText?.text.toString().isNotEmpty() and etPass.editText?.text.toString().isNotEmpty()) {
                 viewModel.loginUser(
                     etUser.editText?.text.toString(),
                     etPass.editText?.text.toString()
                 )
-                viewModel.loginCorrecto.observe(viewLifecycleOwner, Observer {
+                viewModel.loginCorrecto.observe(viewLifecycleOwner) {
                     if (it) {
-                        view!!.findNavController().navigate(R.id.loginToPrincipal)
+                        view!!.findNavController().navigate(R.id.action_loginFragment_to_after_Login2)
                     } else {
                         etUser.isErrorEnabled = true
                         etPass.isErrorEnabled = true
@@ -58,7 +53,7 @@ class loginFragment : Fragment() {
                     }
 
 
-                })
+                }
             }else{
                 etUser.isErrorEnabled = true
                 etPass.isErrorEnabled = true
@@ -81,7 +76,7 @@ class loginFragment : Fragment() {
             {
                 override fun handleOnBackPressed() {
                     activity?.finish()
-                    System.exit(0)
+                    exitProcess(0)
 
                 }
             }

@@ -7,37 +7,16 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.mv.beerapp.ui.view.loginFragment"
+        android:name="com.mv.beerapp.ui.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
 
         <action
             android:id="@+id/action_loginFragment_to_registerBeer"
             app:destination="@id/registerBeer" />
-    </fragment>
-    <action
-        android:id="@+id/loginToPrincipal"
-        app:destination="@id/principalFragment" />
-    <fragment
-        android:id="@+id/principalFragment"
-        android:name="com.mv.beerapp.ui.view.principalFragment"
-        android:label="fragment_principal"
-        tools:layout="@layout/fragment_principal" >
         <action
-            android:id="@+id/prinToDeta"
-            app:destination="@id/ventanaDetalles" />
-        <action
-            android:id="@+id/action_principalFragment_to_favoritos2"
-            app:destination="@id/favoritos2" />
-    </fragment>
-    <fragment
-        android:id="@+id/ventanaDetalles"
-        android:name="com.mv.beerapp.ui.view.ventanaDetalles"
-        android:label="fragment_ventana_detalles"
-        tools:layout="@layout/fragment_ventana_detalles" >
-        <action
-            android:id="@+id/action_ventanaDetalles_to_principalFragment"
-            app:destination="@id/principalFragment" />
+            android:id="@+id/action_loginFragment_to_after_Login2"
+            app:destination="@id/after_Login" />
     </fragment>
     <fragment
         android:id="@+id/registerBeer"
@@ -47,12 +26,36 @@
             android:id="@+id/action_registerBeer_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/favoritos2"
-        android:name="com.mv.beerapp.ui.view.favoritos"
-        android:label="favoritos" >
-        <action
-            android:id="@+id/action_favoritos2_to_principalFragment"
-            app:destination="@id/principalFragment" />
-    </fragment>
+    <navigation android:id="@+id/after_Login"
+        app:startDestination="@id/principalFragment">
+        <fragment
+            android:id="@+id/ventanaDetalles"
+            android:name="com.mv.beerapp.ui.view.VentanaDetalles"
+            android:label="fragment_ventana_detalles"
+            tools:layout="@layout/fragment_ventana_detalles">
+            <action
+                android:id="@+id/action_ventanaDetalles_to_principalFragment"
+                app:destination="@id/principalFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/favoritos2"
+            android:name="com.mv.beerapp.ui.view.Favoritos"
+            android:label="favoritos">
+            <action
+                android:id="@+id/action_favoritos2_to_principalFragment"
+                app:destination="@id/principalFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/principalFragment"
+            android:name="com.mv.beerapp.ui.view.PrincipalFragment"
+            android:label="fragment_principal"
+            tools:layout="@layout/fragment_principal">
+            <action
+                android:id="@+id/prinToDeta"
+                app:destination="@id/ventanaDetalles" />
+            <action
+                android:id="@+id/action_principalFragment_to_favoritos2"
+                app:destination="@id/favoritos2" />
+        </fragment>
+    </navigation>
 </navigation>

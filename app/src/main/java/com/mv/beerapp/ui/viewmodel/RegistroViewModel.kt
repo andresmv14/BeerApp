@@ -18,11 +18,11 @@ class RegistroViewModel: ViewModel() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun guardarUsuario(user:String, pass:String){
         val encodePass: String = Base64.getEncoder().encodeToString(pass.toByteArray())
-        var mUser = UserEntity(0,user,encodePass)
+        val mUser = UserEntity(0,user,encodePass)
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO){
                 BeerApp.db.getBeerDao().insertUser(
-                    arrayListOf<UserEntity>(mUser)
+                    arrayListOf(mUser)
                 )
             }
             operacionExistosa.value = result.isNotEmpty()

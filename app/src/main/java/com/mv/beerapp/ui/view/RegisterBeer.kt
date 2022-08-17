@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.mv.beerapp.R
@@ -19,9 +18,9 @@ import com.mv.beerapp.ui.viewmodel.RegistroViewModel
 
 class RegisterBeer : Fragment() {
 
-    lateinit var etUser:TextInputLayout
-    lateinit var etPass:TextInputLayout
-    lateinit var btnRegistrar:Button
+    private lateinit var etUser:TextInputLayout
+    private lateinit var etPass:TextInputLayout
+    private lateinit var btnRegistrar:Button
     private val viewModel: RegistroViewModel by viewModels()
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -35,16 +34,16 @@ class RegisterBeer : Fragment() {
         btnRegistrar = view.findViewById(R.id.btnRegister)
 
         btnRegistrar.setOnClickListener {
-            if (!etUser.editText?.text.toString().isNullOrEmpty() and !etPass.editText?.text.toString().isNullOrEmpty()){
+            if (etUser.editText?.text.toString().isNotEmpty() and etPass.editText?.text.toString().isNotEmpty()){
                 viewModel.guardarUsuario(etUser.editText?.text.toString(), etPass.editText?.text.toString())
-            viewModel.operacionExistosa.observe(viewLifecycleOwner, Observer {
+            viewModel.operacionExistosa.observe(viewLifecycleOwner){
                 if (it){
                     Toast.makeText(requireContext(),"Usuario Creado",Toast.LENGTH_LONG).show()
                     findNavController().navigate(R.id.action_registerBeer_to_loginFragment)
                 }else{
                     Toast.makeText(requireContext(),"Usuario no creado",Toast.LENGTH_LONG).show()
                 }
-            })
+            }
         }else{
                 etUser.isErrorEnabled = true
                 etPass.isErrorEnabled = true

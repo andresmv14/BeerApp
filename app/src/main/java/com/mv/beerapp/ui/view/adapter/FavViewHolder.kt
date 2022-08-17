@@ -10,9 +10,9 @@ import com.squareup.picasso.Picasso
 
 
 class FavViewHolder(view: View): RecyclerView.ViewHolder(view) {
-    val favName = view.findViewById<TextView>(R.id.tvName)
-    val tagFav = view.findViewById<TextView>(R.id.tvTagLine)
-    val favImg = view.findViewById<ImageView>(R.id.ivBeer)
+    private val favName: TextView  = view.findViewById(R.id.tvName)
+    private val tagFav: TextView  = view.findViewById(R.id.tvTagLine)
+    private val favImg: ImageView = view.findViewById(R.id.ivBeer)
 
     fun render(beerItem: BeerEntity){
         favName.text = beerItem.name

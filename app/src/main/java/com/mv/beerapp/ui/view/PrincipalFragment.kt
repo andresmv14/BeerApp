@@ -15,16 +15,11 @@ import androidx.compose.material.AlertDialog
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
-
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalContext
-
 import androidx.fragment.app.activityViewModels
-
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,11 +29,12 @@ import com.mv.beerapp.R
 import com.mv.beerapp.ui.view.adapter.BeerAdapter
 
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
+import kotlin.system.exitProcess
 
 
-class principalFragment : Fragment()  {
-    lateinit var btnSalir:Button
-    lateinit var btnFavoritos:Button
+class PrincipalFragment : Fragment()  {
+    private lateinit var btnSalir:Button
+    private lateinit var btnFavoritos:Button
     private val beerViewModel: BeerViewModel by activityViewModels()
     override fun onCreateView (
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,16 +48,18 @@ class principalFragment : Fragment()  {
         }
         btnSalir = view.findViewById(R.id.salir)
         btnSalir.setOnClickListener {
-            view.findViewById<ComposeView>(R.id.compose_view).setContent { alertDialog() }
+            view.findViewById<ComposeView>(R.id.compose_view).setContent { AlertDialog() }
         }
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerBeer)
         recyclerView.layoutManager =LinearLayoutManager(requireContext())
         beerViewModel.onCreate()
-        beerViewModel.beerModel.observe(viewLifecycleOwner, Observer {
-            recyclerView.adapter = BeerAdapter(it,{beerItem -> beerViewModel.onBeerClicked(beerItem)
-                findNavController().navigate(R.id.prinToDeta)})
+        beerViewModel.beerModel.observe(viewLifecycleOwner) {
+            recyclerView.adapter = BeerAdapter(it) { beerItem ->
+                beerViewModel.onBeerClicked(beerItem)
+                findNavController().navigate(R.id.prinToDeta)
+            }
 
-        })
+        }
 
 
 
@@ -75,7 +73,7 @@ class principalFragment : Fragment()  {
             {
                 override fun handleOnBackPressed() {
                     activity?.finish()
-                    System.exit(0)
+                    exitProcess(0)
                 }
             }
         requireActivity().onBackPressedDispatcher.addCallback(
@@ -85,7 +83,7 @@ class principalFragment : Fragment()  {
     }
 
     @Composable
-    fun alertDialog(){
+    fun AlertDialog(){
         val openDialog = remember{ mutableStateOf(true)}
 
         if (openDialog.value){
@@ -98,7 +96,7 @@ class principalFragment : Fragment()  {
                         onClick = {
                             openDialog.value = false
                             activity?.finish()
-                            System.exit(0)
+                            exitProcess(0)
                         }) {
                         Text(text = "Confirmar", color = Color.Black)
                     }

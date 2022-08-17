@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,8 +17,8 @@ import com.mv.beerapp.ui.view.adapter.FavAdapter
 import com.mv.beerapp.ui.viewmodel.FavoritosViewModel
 
 
-class favoritos : Fragment() {
-    lateinit var btnRegresar:Button
+class Favoritos : Fragment() {
+    private lateinit var btnRegresar:Button
     private val viewModel:FavoritosViewModel by viewModels()
 
     override fun onCreateView(
@@ -31,10 +30,10 @@ class favoritos : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerFavoritos)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.onCreate()
-        viewModel.beerFavoritos.observe(viewLifecycleOwner, Observer {
+        viewModel.beerFavoritos.observe(viewLifecycleOwner) {
             recyclerView.adapter = FavAdapter(it)
 
-        })
+        }
 
         btnRegresar.setOnClickListener {
             findNavController().navigate(R.id.action_favoritos2_to_principalFragment)

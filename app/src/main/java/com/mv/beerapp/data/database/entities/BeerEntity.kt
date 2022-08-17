@@ -3,8 +3,6 @@ package com.mv.beerapp.data.database.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
-import com.mv.beerapp.data.model.BeerModel
 import com.mv.beerapp.modelo.BeerItem
 
 @Entity

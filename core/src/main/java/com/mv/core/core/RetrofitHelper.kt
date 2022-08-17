@@ -1,4 +1,4 @@
-package com.mv.beerapp.core
+package com.mv.core.core
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

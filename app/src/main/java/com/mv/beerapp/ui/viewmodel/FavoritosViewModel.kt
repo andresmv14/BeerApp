@@ -19,7 +19,7 @@ class FavoritosViewModel:ViewModel() {
             val result = withContext(Dispatchers.IO){
                 BeerApp.db.getBeerDao().getUserWithBeers(BeerProvider.id)
             }
-            if (!result.isNullOrEmpty()){
+            if (result.isNotEmpty()){
 
                 beerFavoritos.postValue(result.first().beers)
             }else{

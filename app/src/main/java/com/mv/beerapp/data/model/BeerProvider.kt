@@ -6,7 +6,6 @@ class BeerProvider {
         lateinit var user:String
         var id:Int = 0
        var fav: List<Int> = emptyList()
-        lateinit var lisFav:List<Long>
 
     }
 

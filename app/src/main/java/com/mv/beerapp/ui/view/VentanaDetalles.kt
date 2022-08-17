@@ -11,7 +11,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.mv.beerapp.R
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
@@ -19,16 +18,13 @@ import com.squareup.picasso.Picasso
 
 
 
-class ventanaDetalles : Fragment() {
-    lateinit var ivDImage: ImageView
-    lateinit var tvDname: TextView
-    lateinit var tvDescription: TextView
-    lateinit var tvdTagLine: TextView
-    lateinit var btnRetroceso: Button
+class VentanaDetalles : Fragment() {
+    private lateinit var ivDImage: ImageView
+    private lateinit var tvDname: TextView
+    private lateinit var tvDescription: TextView
+    private lateinit var tvdTagLine: TextView
+    private lateinit var btnRetroceso: Button
     private val beerViewModel: BeerViewModel by activityViewModels()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +37,12 @@ class ventanaDetalles : Fragment() {
         tvDescription = view.findViewById(R.id.tvDdescription)
         tvdTagLine = view.findViewById(R.id.tvDTagline)
 
-        beerViewModel.beerDetail.observe(viewLifecycleOwner, Observer {
+        beerViewModel.beerDetail.observe(viewLifecycleOwner) {
             tvDname.text = it.name
             tvDescription.text = it.description
             tvdTagLine.text = it.tagLine
             Picasso.get().load(it.image).into(ivDImage)
-        })
+        }
         btnRetroceso.setOnClickListener {
             findNavController().navigate(R.id.action_ventanaDetalles_to_principalFragment)
         }

@@ -16,10 +16,10 @@ import com.squareup.picasso.Picasso
 
 
 class BeerViewHolder(view:View):RecyclerView.ViewHolder(view) {
-    val tvName = view.findViewById<TextView>(R.id.tvName)
-    val tagLine = view.findViewById<TextView>(R.id.tvTagLine)
-    val imagen = view.findViewById<ImageView>(R.id.ivBeer)
-    val addFav = view.findViewById<CheckBox>(R.id.chAddFav)
+    private val tvName: TextView = view.findViewById(R.id.tvName)
+    private val tagLine: TextView  = view.findViewById(R.id.tvTagLine)
+    private val ivImage: ImageView = view.findViewById(R.id.ivBeer)
+    private val addFav: CheckBox = view.findViewById(R.id.chAddFav)
 
     fun render(beerItem: BeerItem, onClick: (BeerItem) -> Unit,position:Int){
         tvName.text = beerItem.name
@@ -30,16 +30,16 @@ class BeerViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
         addFav.setOnClickListener {
             if(!addFav.isChecked){
-                BeerViewModel().OnDeleteClick(BeerProvider.id, beerItem.Beerid)
+                BeerViewModel().onDeleteClick(BeerProvider.id, beerItem.Beerid)
                 addFav.isChecked = false
             }else{
 
-                    BeerViewModel().OnfavClick(BeerProvider.id, beerItem.Beerid)
+                    BeerViewModel().onFavClick(BeerProvider.id, beerItem.Beerid)
                     addFav.isChecked = true
 
             }
         }
-        Picasso.get().load(beerItem.image).into(imagen)
+        Picasso.get().load(beerItem.image).into(ivImage)
         itemView.setOnClickListener{
             onClick(beerItem)
         }
