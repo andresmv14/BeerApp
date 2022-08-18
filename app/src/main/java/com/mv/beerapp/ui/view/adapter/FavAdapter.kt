@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
-import com.mv.beerapp.data.database.entities.BeerEntity
+import com.mv.core.core.data.database.entities.BeerEntity
 
 
 class FavAdapter(private val beerList: List<BeerEntity>): RecyclerView.Adapter<FavViewHolder>() {

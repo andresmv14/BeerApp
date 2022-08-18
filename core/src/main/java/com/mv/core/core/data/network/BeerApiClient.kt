@@ -1,7 +1,6 @@
-package com.mv.beerapp.data.network
+package com.mv.core.core.data.network
 
-import com.mv.beerapp.data.model.BeerModel
-import retrofit2.Call
+import com.mv.core.core.data.model.BeerModel
 import retrofit2.Response
 import retrofit2.http.GET
 

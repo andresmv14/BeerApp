@@ -1,4 +1,4 @@
-package com.mv.beerapp.data.model
+package com.mv.core.core.data.model
 
 class BeerProvider {
     companion object{

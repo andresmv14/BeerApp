@@ -1,10 +1,10 @@
-package com.mv.beerapp.data.database.entities.dao
+package com.mv.core.core.data.database.entities.dao
 
 import androidx.room.*
-import com.mv.beerapp.data.database.entities.BeerEntity
-import com.mv.beerapp.data.database.entities.UserBeerRef
-import com.mv.beerapp.data.database.entities.UserEntity
-import com.mv.beerapp.data.database.entities.UserWithBeer
+import com.mv.core.core.data.database.entities.BeerEntity
+import com.mv.core.core.data.database.entities.UserBeerRef
+import com.mv.core.core.data.database.entities.UserEntity
+import com.mv.core.core.data.database.entities.UserWithBeer
 import org.jetbrains.annotations.NotNull
 
 @Dao

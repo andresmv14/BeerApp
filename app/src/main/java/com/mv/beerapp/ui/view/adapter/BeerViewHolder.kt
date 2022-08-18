@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
-import com.mv.beerapp.data.model.BeerProvider
-import com.mv.beerapp.data.model.BeerProvider.Companion.fav
-import com.mv.beerapp.modelo.BeerItem
+import com.mv.core.core.data.model.BeerProvider
+import com.mv.core.core.data.model.BeerProvider.Companion.fav
+import com.mv.core.core.data.modelo.BeerItem
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
 import com.squareup.picasso.Picasso
 

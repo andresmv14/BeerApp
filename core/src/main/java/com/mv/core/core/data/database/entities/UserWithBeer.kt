@@ -1,9 +1,8 @@
-package com.mv.beerapp.data.database.entities
+package com.mv.core.core.data.database.entities
 
 import androidx.room.Embedded
 import androidx.room.Junction
 import androidx.room.Relation
-import com.mv.beerapp.modelo.BeerItem
 
 data class UserWithBeer(
     @Embedded val favoritos: UserEntity,

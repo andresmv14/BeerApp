@@ -5,8 +5,8 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mv.beerapp.data.database.entities.BeerApp
-import com.mv.beerapp.data.database.entities.UserEntity
+import com.mv.core.core.data.database.entities.BeerApp
+import com.mv.core.core.data.database.entities.UserEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

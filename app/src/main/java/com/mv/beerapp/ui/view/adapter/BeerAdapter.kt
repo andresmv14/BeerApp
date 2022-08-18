@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
-import com.mv.beerapp.data.model.BeerProvider
-import com.mv.beerapp.modelo.BeerItem
+import com.mv.core.core.data.model.BeerProvider
+import com.mv.core.core.data.modelo.BeerItem
 import com.mv.beerapp.ui.viewmodel.BeerViewModel
 
 class BeerAdapter(private val beerList: List<BeerItem>, private val onClickListener: (BeerItem) -> Unit) : RecyclerView.Adapter<BeerViewHolder>(){

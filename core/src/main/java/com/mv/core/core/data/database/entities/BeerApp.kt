@@ -1,4 +1,4 @@
-package com.mv.beerapp.data.database.entities
+package com.mv.core.core.data.database.entities
 
 import android.app.Application
 import androidx.room.Room

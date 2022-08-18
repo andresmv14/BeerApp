@@ -1,9 +1,9 @@
-package com.mv.beerapp.data.database.entities
+package com.mv.core.core.data.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.mv.beerapp.modelo.BeerItem
+import com.mv.core.core.data.modelo.BeerItem
 
 @Entity
 data class BeerEntity (

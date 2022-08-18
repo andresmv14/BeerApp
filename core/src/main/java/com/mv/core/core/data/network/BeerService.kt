@@ -1,7 +1,7 @@
-package com.mv.beerapp.data.network
+package com.mv.core.core.data.network
 
 import com.mv.core.core.RetrofitHelper
-import com.mv.beerapp.data.model.BeerModel
+import com.mv.core.core.data.model.BeerModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

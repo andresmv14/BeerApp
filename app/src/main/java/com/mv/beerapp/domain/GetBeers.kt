@@ -1,8 +1,8 @@
 package com.mv.beerapp.domain
 
-import com.mv.beerapp.data.BeerRepository
-import com.mv.beerapp.data.database.entities.toDatbase
-import com.mv.beerapp.modelo.BeerItem
+import com.mv.core.core.data.BeerRepository
+import com.mv.core.core.data.database.entities.toDatbase
+import com.mv.core.core.data.modelo.BeerItem
 
 class GetBeers {
     private val repository = BeerRepository()

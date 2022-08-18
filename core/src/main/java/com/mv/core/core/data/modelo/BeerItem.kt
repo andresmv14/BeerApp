@@ -1,7 +1,7 @@
-package com.mv.beerapp.modelo
+package com.mv.core.core.data.modelo
 
-import com.mv.beerapp.data.database.entities.BeerEntity
-import com.mv.beerapp.data.model.BeerModel
+import com.mv.core.core.data.database.entities.BeerEntity
+import com.mv.core.core.data.model.BeerModel
 
 
 data class BeerItem(

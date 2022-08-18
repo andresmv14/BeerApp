@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mv.beerapp.data.database.entities.BeerApp
-import com.mv.beerapp.data.database.entities.BeerEntity
-import com.mv.beerapp.data.model.BeerProvider
+import com.mv.core.core.data.database.entities.BeerApp
+import com.mv.core.core.data.database.entities.BeerEntity
+import com.mv.core.core.data.model.BeerProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

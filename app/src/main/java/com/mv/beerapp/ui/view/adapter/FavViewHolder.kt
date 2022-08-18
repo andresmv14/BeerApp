@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mv.beerapp.R
-import com.mv.beerapp.data.database.entities.BeerEntity
+import com.mv.core.core.data.database.entities.BeerEntity
 import com.squareup.picasso.Picasso
 
 

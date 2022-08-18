@@ -1,13 +1,13 @@
-package com.mv.beerapp.data
+package com.mv.core.core.data
 
 
-import com.mv.beerapp.data.database.entities.BeerApp
-import com.mv.beerapp.data.database.entities.BeerEntity
-import com.mv.beerapp.data.model.BeerModel
-import com.mv.beerapp.data.model.BeerProvider
-import com.mv.beerapp.data.network.BeerService
-import com.mv.beerapp.modelo.BeerItem
-import com.mv.beerapp.modelo.toDomain
+import com.mv.core.core.data.database.entities.BeerApp
+import com.mv.core.core.data.database.entities.BeerEntity
+import com.mv.core.core.data.model.BeerModel
+import com.mv.core.core.data.model.BeerProvider
+import com.mv.core.core.data.network.BeerService
+import com.mv.core.core.data.modelo.BeerItem
+import com.mv.core.core.data.modelo.toDomain
 
 class BeerRepository {
     private val api = BeerService()
