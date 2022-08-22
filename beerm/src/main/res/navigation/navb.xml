@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navb"
+    app:startDestination="@id/principalFragment">
+
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="com.mv.beerm.ui.view.PrincipalFragment"
+        android:label="PrincipalFragment" >
+        <action
+            android:id="@+id/action_principalFragment_to_favoritos"
+            app:destination="@id/favoritos" />
+        <action
+            android:id="@+id/action_principalFragment_to_ventanaDetalles"
+            app:destination="@id/ventanaDetalles" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritos"
+        android:name="com.mv.beerm.ui.view.Favoritos"
+        android:label="Favoritos" >
+        <action
+            android:id="@+id/action_favoritos_to_principalFragment"
+            app:destination="@id/principalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ventanaDetalles"
+        android:name="com.mv.beerm.ui.view.VentanaDetalles"
+        android:label="VentanaDetalles" >
+        <action
+            android:id="@+id/action_ventanaDetalles_to_principalFragment"
+            app:destination="@id/principalFragment" />
+    </fragment>
+</navigation>
