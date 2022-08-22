@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/andre/AndroidStudioProjects/BeerM/beers/src/main/res/layout/activity_beer.xml" value="0.1859375" />
+        <entry key="..\:/Users/andre/AndroidStudioProjects/BeerM/beers/src/main/res/layout/fragment_favoritos.xml" value="0.22270114942528735" />
+        <entry key="..\:/Users/andre/AndroidStudioProjects/BeerM/beers/src/main/res/layout/fragment_principal.xml" value="0.3625" />
+        <entry key="..\:/Users/andre/AndroidStudioProjects/BeerM/beers/src/main/res/layout/item_beer_fav.xml" value="0.3625" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Beerapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.277" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Beerapp/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.245" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Beerapp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.245" />

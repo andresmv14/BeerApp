@@ -1,0 +1,24 @@
+package com.mv.beers.ui.view.adapter.adapter
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.mv.beers.R
+import com.mv.core.core.data.database.entities.BeerEntity
+
+
+class FavAdapter(private val beerList: List<BeerEntity>): RecyclerView.Adapter<FavViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return FavViewHolder(layoutInflater.inflate(R.layout.item_beer_fav, parent, false))
+    }
+
+    override fun onBindViewHolder(holder: FavViewHolder, position: Int) {
+        val item = beerList[position]
+        holder.render(item)
+    }
+
+    override fun getItemCount(): Int {
+        return beerList.size
+    }
+}

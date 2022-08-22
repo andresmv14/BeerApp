@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navb"
+    app:startDestination="@id/principalFragment">
+
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="com.mv.beers.ui.view.PrincipalFragment"
+        android:label="fragment_principal"
+        tools:layout="@layout/fragment_principal" >
+        <action
+            android:id="@+id/action_principalFragment_to_ventanaDetalles"
+            app:destination="@id/ventanaDetalles" />
+        <action
+            android:id="@+id/action_principalFragment_to_favoritos"
+            app:destination="@id/favoritos" />
+    </fragment>
+    <fragment
+        android:id="@+id/ventanaDetalles"
+        android:name="com.mv.beers.ui.view.VentanaDetalles"
+        android:label="fragment_ventana_detalles"
+        tools:layout="@layout/fragment_ventana_detalles" >
+        <action
+            android:id="@+id/action_ventanaDetalles_to_principalFragment"
+            app:destination="@id/principalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritos"
+        android:name="com.mv.beers.ui.view.Favoritos"
+        android:label="Favoritos" >
+        <action
+            android:id="@+id/action_favoritos_to_principalFragment"
+            app:destination="@id/principalFragment" />
+    </fragment>
+</navigation>

@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
                 )
                 viewModel.loginCorrecto.observe(viewLifecycleOwner) {
                     if (it) {
-                        view!!.findNavController().navigate(R.id.action_loginFragment_to_after_Login2)
+                        view!!.findNavController().navigate(R.id.action_loginFragment_to_navb)
                     } else {
                         etUser.isErrorEnabled = true
                         etPass.isErrorEnabled = true

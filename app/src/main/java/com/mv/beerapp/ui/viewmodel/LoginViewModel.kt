@@ -24,7 +24,7 @@ class LoginViewModel: ViewModel() {
 
             }
 
-            if (result.isNotEmpty()) {
+            if (!result.isNullOrEmpty()) {
                 val decodedBytes = Base64.getDecoder().decode(result)
                 val decodedString = String(decodedBytes)
                 if (decodedString == pass){
