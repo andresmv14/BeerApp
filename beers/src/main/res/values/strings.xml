@@ -6,5 +6,7 @@
     <string name="Usuario">Usuario</string>
     <string name="ErrorUsuario">Usuario o contraseña incorrectos</string>
 
+    <string name="msg_empty_favorites">No se encontraron favoritos, pero puedes elegir los seleccionando el corazón.</string>
+
 
 </resources>

@@ -26,6 +26,8 @@
         <entry key="..\:/Users/andre/AndroidStudioProjects/Beerapp/app/src/main/res/layout/fragment_ventana_detalles.xml" value="0.25" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Beerapp/app/src/main/res/layout/item_beer.xml" value="0.5" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Beerapp/app/src/main/res/layout/item_beer_fav.xml" value="0.21927083333333333" />
+        <entry key="beers/src/main/res/layout/fragment_favoritos.xml" value="0.37604166666666666" />
+        <entry key="beers/src/main/res/layout/item_beer_fav.xml" value="0.37604166666666666" />
       </map>
     </option>
   </component>
